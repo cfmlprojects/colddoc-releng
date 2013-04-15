@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<src>
+	<project>
+		<src dest="@src.dir@/ColdDoc" type="git" 
+		uri="git://github.com/markmandel/ColdDoc.git" 
+		user="" password="" />
+	</project>
+	<sources>
+	</sources>
+</src>
