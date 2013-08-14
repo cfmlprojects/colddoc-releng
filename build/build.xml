@@ -16,7 +16,7 @@
 	   	<property name="mvn.type" value="release" />
 
 	   	<delete file="${dist.dir}/ColdDoc.zip" />
-		<zip destfile="${dist.dir}/ColdDoc.zip" basedir="${src.dir}" />
+		<zip destfile="${dist.dir}/ColdDoc.zip" basedir="${src.dir}/ColdDoc" />
 
 		<pom-and-deploy pomid="ColdDoc.pom" packaging="zip" artifact="${dist.dir}/ColdDoc.zip"
 		 groupId="org.riaforge" artifactId="colddoc" version="1.0" name="ColdDoc"/>
