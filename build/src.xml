@@ -3,7 +3,7 @@
 	<project>
 		<src dest="@src.dir@/ColdDoc" type="git" 
 		uri="git://github.com/markmandel/ColdDoc.git" 
-		user="" password="" />
+		branch="master" user="" password="" />
 	</project>
 	<sources>
 	</sources>
