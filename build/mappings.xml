@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<mappings>
-<mapping physical="@ext.mappings.dir@/org.mxunit/core/2.1.3/mxunit" virtual="/mxunit"/>
-<mapping physical="@src.dir@/ColdDoc" virtual="/ColdDoc"/>
-</mappings>

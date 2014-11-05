@@ -5,9 +5,16 @@
 
 	<target name="build" depends="cfdistro.build">
 		<mapping physical="@src.dir@/ColdDoc" virtual="/ColdDoc"/>
-	</target>	
+	</target>
 
-	<target name="build.mvn.release" depends="project.update,build">
+	<target name="docs" depends="build">
+      	<colddoc packagenames="colddoc"
+            sourcepath="${src.dir}/ColdDoc" destdir="${dist.dir}/docs/api"
+            title="ColdDoc 1.0-SNAPSHOT" />
+        <zip destfile="${dist.dir}/colddoc-docs-1.0.zip" basedir="${dist.dir}/docs/api"></zip>
+	</target>
+
+	<target name="build.mvn.release" depends="project.update">
 	    <property name="mvn.repo.dest" value="local" />
 	    <property name="mvn.repo.dest" value="remote" />
 	    <property name="mvn.repo.id" value="mvn.repo.${mvn.repo.dest}" />
@@ -17,12 +24,6 @@
 
 	   	<delete file="${dist.dir}/ColdDoc.zip" />
 		<zip destfile="${dist.dir}/ColdDoc.zip" basedir="${src.dir}/ColdDoc" />
-<!--
-      	<colddoc packagenames="colddoc"
-            sourcepath="${src.dir}/ColdDoc" destdir="${dist.dir}/docs/api"
-            title="ColdDoc 1.0-SNAPSHOT" />
-        <zip destfile="${dist.dir}/colddoc-docs-1.0.zip" basedir="${dist.dir}/docs/api"></zip>
--->
 		<pom-and-deploy pomid="ColdDoc.pom" packaging="zip" artifact="${dist.dir}/ColdDoc.zip" buildtype="${mvn.type}"
 		 groupId="${artifact.colddoc.groupid}" artifactId="colddoc" version="1.0" name="ColdDoc"/>
 		
