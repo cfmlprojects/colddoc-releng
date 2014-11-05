@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <src>
 	<project>
-		<src dest="@src.dir@/ColdDoc" type="git" 
-		uri="git://github.com/markmandel/ColdDoc.git" 
-		branch="master" user="" password="" />
+		<src branch="@sc.colddoc.branch@" dest="@src.dir@/ColdDoc" password="" 
+		  remote="@sc.colddoc.remote@" type="git" uri="@sc.colddoc.uri@" user=""/>
 	</project>
 	<sources>
 	</sources>

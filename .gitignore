@@ -3,6 +3,7 @@
 /build/creds.txt
 /build/deploy.key
 /build/temp
+/build/scm.cache
 /build/cache.properties
 /build/extensionbase
 /build/requires.txt

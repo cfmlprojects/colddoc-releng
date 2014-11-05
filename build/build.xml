@@ -7,7 +7,7 @@
 		<mapping physical="@src.dir@/ColdDoc" virtual="/ColdDoc"/>
 	</target>	
 
-	<target name="build.mvn.release" depends="project.update, build">
+	<target name="build.mvn.release" depends="project.update,build">
 	    <property name="mvn.repo.dest" value="local" />
 	    <property name="mvn.repo.dest" value="remote" />
 	    <property name="mvn.repo.id" value="mvn.repo.${mvn.repo.dest}" />
@@ -17,9 +17,14 @@
 
 	   	<delete file="${dist.dir}/ColdDoc.zip" />
 		<zip destfile="${dist.dir}/ColdDoc.zip" basedir="${src.dir}/ColdDoc" />
-
-		<pom-and-deploy pomid="ColdDoc.pom" packaging="zip" artifact="${dist.dir}/ColdDoc.zip"
-		 groupId="org.riaforge" artifactId="colddoc" version="1.0" name="ColdDoc"/>
+<!--
+      	<colddoc packagenames="colddoc"
+            sourcepath="${src.dir}/ColdDoc" destdir="${dist.dir}/docs/api"
+            title="ColdDoc 1.0-SNAPSHOT" />
+        <zip destfile="${dist.dir}/colddoc-docs-1.0.zip" basedir="${dist.dir}/docs/api"></zip>
+-->
+		<pom-and-deploy pomid="ColdDoc.pom" packaging="zip" artifact="${dist.dir}/ColdDoc.zip" buildtype="${mvn.type}"
+		 groupId="${artifact.colddoc.groupid}" artifactId="colddoc" version="1.0" name="ColdDoc"/>
 		
 	 	<!--  create an extension -->
 		<delete dir="${basedir}/extensionbase/" />
@@ -31,7 +36,7 @@
 		<delete dir="${basedir}/extensionbase/" />
 	
         <!-- add the extension as well -->
-		<mvn-put artifact="${extension.dist}/${extension.archive}"
+		<mvn-put artifact="${extension.dist}/${extension.archive}" buildtype="${mvn.type}"
 			packaging="zip" repoId="${mvn.repo.id}" groupId="cfml.extensions"
 			artifactId="colddoc" version="${extension.version}" />
 
